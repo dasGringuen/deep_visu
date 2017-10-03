@@ -1,9 +1,7 @@
-
 from functools import partial
 from threading import Thread
 import math
 from queue import Queue
-
 from bokeh.client import push_session
 from bokeh.driving import cosine
 from bokeh.plotting import figure, curdoc, reset_output, save, output_file

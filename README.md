@@ -1,57 +1,67 @@
 # deep_visu
-Deep learning and machine learning visualization and experiments framework.
+Visualization and experiments framework for training Deep learning and Machine learning algorithms.
 
-Help to keep track of experiments by saving the results and the configuration on single html file.
+Help to keep track of experiments by saving the results and configuratios on single html file.
 
 ## Features:
-    -   Visualization for real time signals
-    -   Python3
-    -   Bokeh
-
+    *   Visualization for real time signals
+    *   Written in Python 3
+    *   Based on Bokeh
 
 ## Requirements
 
-* python3
-* bokeh
+* Python 3
+* Bokeh
 
-
-## Setup and customize
-1. Create a generic initialization file. This will create a configuration file called _el.conf_ in the current directory. This file will determine the ip address of the host and some other options.
-
-```sh
-    ~$ elinit
-```
-    
-2. Customize the el.conf file created in the previous step
-```sh
-    user="ad"               # remote login user name
-    ip="localhost"          # remote host address or domain name
-    file_manager="nautilus" # File manager can specify Nautilus, Dolphin or any other
-```
-
-3.  To avoid writing the remote password everytime (Optional)
-    The public key will be copied to the remote host
-    
-    ~$ elsetup_remote_host
-    
 ## Use
-### Ping the remote host
 
-    ~$ elping
+-   Run
 
-### Connect using ssh
+```
+~$ bokeh serve
+```
 
-    ~$ elconn
-    
-### To browse remote file system 
-It will run the file manager configured in step 2
+-   And in a separated tab run the Python script
 
-    ~$ elfs
-    
+```
+~$ python3 example_signals.py
+```
+
+## To add in a python code
+
+
+```
+# Import the plot
+from LogPlotBokeh import LogPlot
+
+# Create an instance
+log = LogPlot(name="Title",
+        properties=["Reward", "Avr_Reward"],
+        properties_telemetry=["speedX", "steer"],
+        output_path="."
+        )
+
+# Feed data to both plots and the text log
+episode_progres = {"Reward":10, "Avr_Reward":20}
+log.progress.add(x=i, y=episode_progres)
+
+# telemetry
+telemetry = {"speedX":10, "accel":20}
+log.telemetry.add(x=i, y=telemetry)
+
+# Add some text to the log
+log.terminal("Model  parameters %d" % i)
+
+# Close
+log.close()
+```
+
+
+
 ### Todos
 
- - Improve performance
- - Remove the use of Bokeh client
+-   Improve performance
+-   Remove the use of Bokeh client
 
 ### License
 
