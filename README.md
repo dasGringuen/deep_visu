@@ -1,12 +1,13 @@
 # deep_visu
 Visualization and experiments framework for training Deep learning and Machine learning algorithms.
 
-Help to keep track of experiments by saving the results and configuratios on single html file.
+Help to keep track of experiments by saving the results and configurations on single html file.
 
-## Features:
-    *   Visualization for real time signals
-    *   Written in Python 3
-    *   Based on Bokeh
+## Features
+
+*   Visualization for real time signals
+*   Written in Python 3
+*   Based on Bokeh
 
 ## Requirements
 
@@ -15,20 +16,19 @@ Help to keep track of experiments by saving the results and configuratios on sin
 
 ## Use
 
--   Run
+-   Run bokeh in a separated terminal
 
 ```
 ~$ bokeh serve
 ```
 
--   And in a separated tab run the Python script
+-   Run the Python script
 
 ```
 ~$ python3 example_signals.py
 ```
 
-## To add in a python code
-
+## How to use it in Python script
 
 ```
 # Import the plot
@@ -58,12 +58,12 @@ log.close()
 
 
 
-### Todos
+## Todos
 
 -   Improve performance
 -   Remove the use of Bokeh client
 
-### License
+## License
 
 -   GPL v3
 
