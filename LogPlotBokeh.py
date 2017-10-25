@@ -11,6 +11,7 @@ from bokeh.models import ColumnDataSource
 from bokeh.plotting import curdoc, figure, gridplot
 from bokeh.layouts import column, row
 from tornado import gen
+import time
 
 from misc import get_date_time_string
 
@@ -181,7 +182,8 @@ class LogPlot(object):
 
     def save(self):
         if self.output_path is not None:
-            o = self.output_path + "/" + self.name + "_" + get_date_time_string() + ".html"
+            #o = self.output_path + "/" + self.name + "_" + get_date_time_string() + ".html"
+            o = self.output_path + "/" + self.name + ".html"
             save(self.tabs, o)
             print("# Plot saved to:", o)
 
@@ -209,8 +211,6 @@ class LogPlot(object):
         self.save()
 
     def button_click_handler(self):
-        self.terminal("The other plot is clear now")
-
         if not self.telemetry.enabled:
             self.button.label = "Disable"
             self.telemetry.enabled = True
